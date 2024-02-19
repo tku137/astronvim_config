@@ -25,10 +25,9 @@ return {
         },
         term_colors = true,
         dim_inactive = { enabled = true, percentage = 0.25 },
-        -- integrations = {
-        --   nvimtree = false,
-        --   flash = false,
-        -- },
+        integrations = {
+          flash = true,
+        },
       },
     },
   },
@@ -37,9 +36,10 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
 
-
   -- visuals
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
+  { import = "astrocommunity.file-explorer.oil-nvim" },
+  { import = "astrocommunity.utility.noice-nvim" },
   {
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
     {
@@ -54,7 +54,7 @@ return {
     },
   },
 
-  -- code completion
+  -- code completion and AI
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
