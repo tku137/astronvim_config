@@ -71,6 +71,7 @@
   "oil-vcs-status": { "branch": "main", "commit": "f9c83ec0df05aa06c1cb1bd3b004715fd21f799b" },
   "oil.nvim": { "branch": "master", "commit": "bcfe7d1ec5bbf41dd78726f579a363028d208c1a" },
   "persistent-breakpoints.nvim": { "branch": "main", "commit": "01e43512ef8d137f2b9e5c1c74fd35c37e787b59" },
+  "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "project.nvim": { "branch": "main", "commit": "4317ce951459a53ba45ffed2495ac6752211364b" },
   "promise-async": { "branch": "main", "commit": "94f6f03c6c1e2aab551aacdf0c1e597a7269abb6" },

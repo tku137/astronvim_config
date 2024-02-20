@@ -40,10 +40,8 @@ return {
 
           -- Copy/paste with system clipboard
           ["gy"] = { '"+y', desc = "Copy to system clipboard" },
-          -- ["gY"] = { '"+y$', desc = "Yank to system clipboard" },
           ["gp"] = { '"+p', desc = "Paste from system clipboard" },
           ["gP"] = { '"+P', desc = "Paste from system clipboard" },
-          -- ["gD"] = { '"_d', desc = "Delete to void" },
 
           -- Move with alt in insert, terminal and command
           -- Don't `noremap` in insert mode to have these keybindings behave exactly
@@ -55,16 +53,8 @@ return {
 
 
           -- some plugin mappings
-          -- if lsp_lines is installed, this toggles it on or off
-          -- ["<leader>lx"] = {require("lsp_lines").toggle, desc = "Toggle lsp lines",},
-          -- ["<leader>xs"] = {require("lsp_lines").toggle, desc = "Toggle lsp lines",},
-          ["<leader>lP"] = { "<cmd>TSPlaygroundToggle<cr>", desc = "Toggle TS Playgound", },
-          ["<leader>lt"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", desc = "TS Highlight under Cursor", },
-          ["<leader>lT"] = { "<cmd>TSNodeUnderCursor<cr>", desc = "TS Node under Cursor", },
-          -- ["<leader>uH"] = { "<cmd>Hardtime toggle<cr>", desc = "Toggle Hardtime", },
           ["<leader>fs"] = { "<cmd>Telescope aerial<cr>", desc = "Search symbols" },
           ["<leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
-          ["<leader>fH"] = { "<cmd>Telescope headings<cr>", desc = "Find headings" },
 
           -- Diffview mappings
           ["<leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
@@ -80,31 +70,10 @@ return {
           ["<leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "Open Todos in Trouble" },
           ["<leader>xQ"] = { "<cmd>TodoQuickFix<cr>", desc = "Quickfix List (Todo)" },
           ["<leader>xL"] = { "<cmd>TodoLocList<cr>", desc = "Location List (Todo)" },
-          -- ["<leader>x"] = { desc = "󰒡 Trouble" },
-
-          -- REPL via send-to-term
-          -- ["<leader>rR"] = { "<Plug>Send", desc = "Send to REPL" },
-          -- ["<leader>rL"] = { "<Plug>SendLine", desc = "Send line to REPL" },
-          -- ["<leader>r<cr>"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
-
-          -- REPL via nvim-python-repl
-          ["<leader>tr"] = { function() require('nvim-python-repl').send_statement_definition() end, desc = "Send semantic unit to REPL" },
-          ["<leader>r"] = { function() require('nvim-python-repl').send_statement_definition() end, desc = "Send semantic unit to REPL" },
-          ["<leader>tb"] = { function() require('nvim-python-repl').send_buffer_to_repl() end, desc = "Send entire buffer to REPL" },
-          ["<leader>tE"] = { function()
-              require('nvim-python-repl').toggle_execute()
-              astro_utils.notify("Automatic REPL execution " .. (require("nvim-python-repl.config").defaults["execute_on_send"] == true and "Enabled" or "Disabled"))
-            end, desc = "Toggle automatic execution" },
-          ["<leader>tV"] = { function()
-              require('nvim-python-repl').toggle_vertical()
-              astro_utils.notify("REPL split set to " .. (require("nvim-python-repl.config").defaults["vsplit"] == true and "Vertical" or "Horizontal"))
-            end, desc = "Toggle vertical/horizontal split" },
-
-          -- ["<leader>r"] = { desc = " REPL" },
 
           -- fix missing descriptions in which-key
           -- ["<leader>dt"] = { desc = "󰃤 Telescope DAP", },
-          -- ["<leader>gn"] = { desc = "󰊢 Neogit", },
+          ["<leader>gn"] = { desc = "󰊢 Neogit", },
 
           -- debug mappings
           ["<leader>dPm"] = { "require('dap-python').test_method()", desc = "Debug method" },
