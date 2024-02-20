@@ -5,15 +5,6 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/playground",
-  },
-  keys = {
-    { "<leader>lP", "<cmd>TSPlaygroundToggle<cr>", desc = "Toggle TS Playgound" },
-    { "<leader>lt", "<cmd>TSHighlightCapturesUnderCursor<cr>", desc = "TS Highlight under Cursor" },
-    { "<leader>lT", "<cmd>TSNodeUnderCursor<cr>", desc = "TS Node under Cursor" },
-  },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     opts.ensure_installed = require("astrocore").list_insert_unique(
@@ -48,13 +39,11 @@ return {
       -- sql
       "sql"
     )
-  end,
-      textobjects = {
+    opts.textobjects = {
       select = {
         enable = true,
-        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true,
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
           ["aa"] = "@parameter.outer",
           ["ia"] = "@parameter.inner",
           ["af"] = "@function.outer",
@@ -63,9 +52,18 @@ return {
           ["ic"] = "@class.inner",
         },
       },
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<leader>lz"] = "@parameter.inner",
+        },
+        swap_previous = {
+          ["<leader>lZ"] = "@parameter.inner",
+        },
+      },
       move = {
         enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
+        set_jumps = true,
         goto_next_start = {
           ["]m"] = "@function.outer",
           ["]]"] = "@class.outer",
@@ -83,17 +81,6 @@ return {
           ["[]"] = "@class.outer",
         },
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader>a"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>A"] = "@parameter.inner",
-        },
-      },
-    },
-    playground = {
-      enable = true,
     }
+  end,
 }
