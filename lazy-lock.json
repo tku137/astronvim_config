@@ -1,5 +1,5 @@
 {
-  "AstroNvim": { "branch": "v4", "commit": "b2663e3c1a2d9a23bb6a53dd58dc80fbba4b0651" },
+  "AstroNvim": { "branch": "v4", "commit": "1592d5ee59402d9f75b44a50f31b8f3e0b89c563" },
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
   "SchemaStore.nvim": { "branch": "main", "commit": "12ff3accf50fe1e59b360b2feb0b1be13d14bd3c" },
@@ -71,7 +71,6 @@
   "oil-vcs-status": { "branch": "main", "commit": "f9c83ec0df05aa06c1cb1bd3b004715fd21f799b" },
   "oil.nvim": { "branch": "master", "commit": "bcfe7d1ec5bbf41dd78726f579a363028d208c1a" },
   "persistent-breakpoints.nvim": { "branch": "main", "commit": "01e43512ef8d137f2b9e5c1c74fd35c37e787b59" },
-  "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "project.nvim": { "branch": "main", "commit": "4317ce951459a53ba45ffed2495ac6752211364b" },
   "promise-async": { "branch": "main", "commit": "94f6f03c6c1e2aab551aacdf0c1e597a7269abb6" },

@@ -56,6 +56,12 @@ return {
           ["<leader>fs"] = { "<cmd>Telescope aerial<cr>", desc = "Search symbols" },
           ["<leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
 
+          -- Treesitter mappings
+          ["<leader>lQ"] = { "<cmd>EditQuery<cr>", desc = "TS Live Query Editor", },
+          ["<leader>lt"] = { "<cmd>Inspect<cr>", desc = "TS Node under Cursor", },
+          ["<leader>lT"] = { "<cmd>InspectTree<cr>", desc = "Show AST", },
+
+
           -- Diffview mappings
           ["<leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
           ["<leader>gDc"] = { "<cmd>DiffviewClose<cr>", desc = "Close" },
