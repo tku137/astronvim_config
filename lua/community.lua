@@ -38,7 +38,7 @@ return {
 
   -- visuals
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
-  { import = "astrocommunity.file-explorer.oil-nvim" },
+  -- { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
   {
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
