@@ -9,11 +9,11 @@ return {
       { "<leader>tb", function() require('nvim-python-repl').send_buffer_to_repl() end, desc = "Send entire buffer to REPL" },
       { "<leader>tE", function()
               require('nvim-python-repl').toggle_execute()
-              -- astro_utils.notify("Automatic REPL execution " .. (require("nvim-python-repl.config").defaults["execute_on_send"] == true and "Enabled" or "Disabled"))
+              require("astrocore").notify("Automatic REPL execution " .. (require("nvim-python-repl.config").defaults["execute_on_send"] == true and "Enabled" or "Disabled"))
             end, desc = "Toggle automatic execution" },
       { "<leader>tV", function()
               require('nvim-python-repl').toggle_vertical()
-              -- astro_utils.notify("REPL split set to " .. (require("nvim-python-repl.config").defaults["vsplit"] == true and "Vertical" or "Horizontal"))
+              require("astrocore").notify("REPL split set to " .. (require("nvim-python-repl.config").defaults["vsplit"] == true and "Vertical" or "Horizontal"))
             end, desc = "Toggle vertical/horizontal split" },
     },
     config = function()
