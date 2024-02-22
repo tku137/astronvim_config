@@ -1,5 +1,6 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+---@type LazySpec
 return {
   {
     "AstroNvim/astrocore",
@@ -95,12 +96,8 @@ return {
           -- fix missing descriptions in which-key
           -- ["<Leader>dt"] = { desc = "󰃤 Telescope DAP", },
           ["<Leader>gn"] = { desc = "󰊢 Neogit", },
-
-          -- debug mappings
-          ["<Leader>dPm"] = { "require('dap-python').test_method()", desc = "Debug method" },
-          ["<Leader>dPc"] = { "require('dap-python').test_class()", desc = "Debug class" },
-          ["<Leader>dPs"] = { "<ESC>:lua require('dap-python').debug_selection()", desc = "Debug selection" },
           ["<Leader>fD"] = { desc = "󰯃 DevDocs", },
+          ["<Leader>fd"] = { desc = " DAP", },
           ["<Leader>dP"] = { desc = " Python debugger", },
 
           -- testing

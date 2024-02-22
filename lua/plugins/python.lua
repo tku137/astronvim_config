@@ -54,7 +54,7 @@ return {
       { "<leader>dPm", "require('dap-python').test_method()", desc = "Debug method" },
       { "<leader>dPc", "require('dap-python').test_class()", desc = "Debug class" },
       { "<leader>dPs", "<ESC>:lua require('dap-python').debug_selection()", desc = "Debug selection" },
-      { "<leader>dP", desc = " Python debugger" },
+      -- { "<leader>dP", desc = " Python debugger" },
     },
     config = function(_, opts)
       local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
