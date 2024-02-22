@@ -19,6 +19,7 @@ return {
       "make",
       -- bash
       "bash",
+      "fish",
       -- git
       "diff",
       "git_config",
