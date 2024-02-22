@@ -20,6 +20,16 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
       "nvim-treesitter/nvim-treesitter",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              [prefix] = { desc = "󰯃 DevDocs", },
+            },
+          },
+        },
+      },
     },
     cmd = {
       "DevdocsFetch",
@@ -31,7 +41,6 @@ return {
       "DevdocsUpdateAll",
     },
     keys = {
-      -- { "n", "", desc = "󰯃 DevDocs" },
       { prefix .. "f", "<CMD>DevdocsFetch<CR>", desc = "Fetch Devdocs", mode = { "n" } },
       { prefix .. "i", "<CMD>DevdocsInstall<CR>", desc = "Install Devdocs", mode = { "n" } },
       { prefix .. "u", "<CMD>DevdocsUpdate<CR>", desc = "Update Devdocs", mode = { "n" } },

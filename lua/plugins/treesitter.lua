@@ -5,6 +5,20 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>lQ"] = { "<cmd>EditQuery<cr>", desc = "TS Live Query Editor", },
+              ["<Leader>lt"] = { "<cmd>Inspect<cr>", desc = "TS Node under Cursor", },
+              ["<Leader>lT"] = { "<cmd>InspectTree<cr>", desc = "Show AST", },
+            },
+          },
+        },
+      },
+  },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {

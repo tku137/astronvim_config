@@ -72,12 +72,6 @@ return {
           ["<Leader>fs"] = { "<cmd>Telescope aerial<cr>", desc = "Search symbols" },
           ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
 
-          -- Treesitter mappings
-          ["<Leader>lQ"] = { "<cmd>EditQuery<cr>", desc = "TS Live Query Editor", },
-          ["<Leader>lt"] = { "<cmd>Inspect<cr>", desc = "TS Node under Cursor", },
-          ["<Leader>lT"] = { "<cmd>InspectTree<cr>", desc = "Show AST", },
-
-
           -- Diffview mappings
           ["<Leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
           ["<Leader>gDc"] = { "<cmd>DiffviewClose<cr>", desc = "Close" },
@@ -94,11 +88,8 @@ return {
           ["<Leader>xL"] = { "<cmd>TodoLocList<cr>", desc = "Location List (Todo)" },
 
           -- fix missing descriptions in which-key
-          -- ["<Leader>dt"] = { desc = "󰃤 Telescope DAP", },
           ["<Leader>gn"] = { desc = "󰊢 Neogit", },
-          ["<Leader>fD"] = { desc = "󰯃 DevDocs", },
           ["<Leader>fd"] = { desc = " DAP", },
-          ["<Leader>dP"] = { desc = " Python debugger", },
 
           -- testing
           -- ["<Leader>T"] = { name = "󰙨 Test" },
@@ -113,7 +104,6 @@ return {
           -- ["<Leader>Ts"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
           -- ["<Leader>TS"] = { "<cmd>w|lua require('neotest').summary.toggle()<cr>", desc = "Summary" },
 
-
         },
         t = {
           -- setting a mapping to false will disable it
@@ -122,9 +112,6 @@ return {
           ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
         },
         v = {
-          -- send to Python REPL
-          ["<Leader>r"] = { function() require('nvim-python-repl').send_visual_to_repl() end, desc = "Send visual selection to REPL" },
-
           -- Copy/paste with system clipboard
           ["gy"] = { '"+y', desc = "yank to system clipboard" },
           ["gp"] = { '"+p', desc = "paste from system clipboard" },
