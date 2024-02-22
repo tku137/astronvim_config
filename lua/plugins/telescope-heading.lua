@@ -1,3 +1,6 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+---@type LazySpec
 return {
   'crispgm/telescope-heading.nvim',
   ft = { "markdown", "text", "rst", "latex", "tex" },
