@@ -26,7 +26,8 @@ return {
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
         scrolloff = 10, -- sets vim.opt.scrolloff
-        virtualedit = "block" -- sets vim.opt.virtualedit
+        virtualedit = "block", -- sets vim.opt.virtualedit
+        clipboard = "", -- Remove connection to the system clipboard
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
