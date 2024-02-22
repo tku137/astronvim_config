@@ -100,6 +100,7 @@ return {
           ["<Leader>dPm"] = { "require('dap-python').test_method()", desc = "Debug method" },
           ["<Leader>dPc"] = { "require('dap-python').test_class()", desc = "Debug class" },
           ["<Leader>dPs"] = { "<ESC>:lua require('dap-python').debug_selection()", desc = "Debug selection" },
+          ["<Leader>fD"] = { desc = "󰯃 DevDocs", },
           ["<Leader>dP"] = { desc = " Python debugger", },
 
           -- testing

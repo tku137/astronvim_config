@@ -63,7 +63,6 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
-  { import = "astrocommunity.editing-support.nvim-devdocs" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
 
   -- debugging
