@@ -24,9 +24,11 @@ return {
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts) opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-      "black",
-    }) end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+        "black",
+      })
+    end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -41,6 +43,7 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     opts = {},
+    cmd = { "VenvSelect", "VenvSelectCached" },
     keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
@@ -51,16 +54,16 @@ return {
       { "<leader>dPm", "require('dap-python').test_method()", desc = "Debug method" },
       { "<leader>dPc", "require('dap-python').test_class()", desc = "Debug class" },
       { "<leader>dPs", "<ESC>:lua require('dap-python').debug_selection()", desc = "Debug selection" },
-      { "<leader>dP", desc = " Python debugger", },
+      { "<leader>dP", desc = " Python debugger" },
     },
     config = function(_, opts)
       local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
       require("dap-python").setup(path, opts)
-      table.insert(require('dap').configurations.python, 1, {
-        type = 'python',
-        request = 'launch',
-        name = 'Python: Debug file with justMyCode=false',
-        program = '${file}',
+      table.insert(require("dap").configurations.python, 1, {
+        type = "python",
+        request = "launch",
+        name = "Python: Debug file with justMyCode=false",
+        program = "${file}",
         -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
         justMyCode = false,
       })
