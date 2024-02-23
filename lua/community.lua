@@ -75,9 +75,6 @@ return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
 
-  -- testing
-  { import = "astrocommunity.test.neotest" },
-
   -- search and replace
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.project.nvim-spectre" },
