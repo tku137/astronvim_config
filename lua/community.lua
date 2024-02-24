@@ -89,7 +89,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.pack.bash" },
+  -- { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.programming-language-support.csv-vim" },
 
   -- telescope
