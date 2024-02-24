@@ -26,7 +26,6 @@ return {
         "prettier",
         -- lua
         "stylua",
-        "luacheck"
         -- add more arguments for adding more null-ls sources
       })
     end,
