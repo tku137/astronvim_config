@@ -30,6 +30,7 @@ return {
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
           "python",
+          "lua",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -103,12 +104,19 @@ return {
         --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
         -- },
       },
+      i = {
+        ["<C-s>"] = {
+          function() vim.lsp.buf.signature_help() end,
+          desc = "Signature help",
+          cond = "textDocument/signatureHelp",
+        },
+      },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
-    on_attach = function(client, bufnr)
-      -- this would disable semanticTokensProvider for all clients
-      -- client.server_capabilities.semanticTokensProvider = nil
-    end,
+    -- on_attach = function(client, bufnr)
+    --   -- this would disable semanticTokensProvider for all clients
+    --   -- client.server_capabilities.semanticTokensProvider = nil
+    -- end,
   },
 }

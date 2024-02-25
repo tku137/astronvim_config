@@ -15,6 +15,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "pyright",
@@ -24,6 +25,7 @@ return {
   },
   {
     "jay-babu/mason-null-ls.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "black",
@@ -32,6 +34,7 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "python",
@@ -48,6 +51,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
+    optional = true,
     dependencies = {
       "mfussenegger/nvim-dap",
       {
@@ -80,6 +84,7 @@ return {
   },
   {
     "nvim-neotest/neotest-python",
+    optional = true,
     dependencies = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",

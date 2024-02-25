@@ -53,7 +53,6 @@ return {
           -- this an easy way to add menu titles in which-key
           ["<Leader>bt"] = { name = "󰓩 Tabs" },
 
-
           -- Copy/paste with system clipboard
           ["gy"] = { '"+y', desc = "Copy to system clipboard" },
           ["gp"] = { '"+p', desc = "Paste from system clipboard" },
@@ -67,10 +66,12 @@ return {
           -- ["<M-k>"] = { "<Up>", noremap = false, desc = "Up" },
           -- ["<M-l>"] = { "<Right>", noremap = false, desc = "Right" },
 
-
           -- some plugin mappings
           ["<Leader>fs"] = { "<cmd>Telescope aerial<cr>", desc = "Search symbols" },
           ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
+
+          -- conform formatter
+          ["<Leader>F"] = { function() vim.cmd.Format() end, desc = "Format buffer" },
 
           -- Diffview mappings
           ["<Leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
@@ -88,8 +89,8 @@ return {
           ["<Leader>xL"] = { "<cmd>TodoLocList<cr>", desc = "Location List (Todo)" },
 
           -- fix missing descriptions in which-key
-          ["<Leader>gn"] = { desc = "󰊢 Neogit", },
-          ["<Leader>fd"] = { desc = " DAP", },
+          ["<Leader>gn"] = { desc = "󰊢 Neogit" },
+          ["<Leader>fd"] = { desc = " DAP" },
 
           -- testing
           -- ["<Leader>T"] = { name = "󰙨 Test" },
@@ -103,7 +104,6 @@ return {
           -- ["<Leader>To"] = { "<cmd>w|lua require('neotest').output.open({ enter = true })<cr>", desc = "Output" },
           -- ["<Leader>Ts"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
           -- ["<Leader>TS"] = { "<cmd>w|lua require('neotest').summary.toggle()<cr>", desc = "Summary" },
-
         },
         t = {
           -- setting a mapping to false will disable it
@@ -139,9 +139,7 @@ return {
           -- },
           -- condition for only server with declaration capabilities
           gD = {
-            function()
-              vim.lsp.buf.declaration()
-            end,
+            function() vim.lsp.buf.declaration() end,
             desc = "Declaration of current symbol",
             cond = "textDocument/declaration",
           },

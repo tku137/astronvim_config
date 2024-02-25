@@ -27,6 +27,18 @@ return {
         dim_inactive = { enabled = true, percentage = 0.25 },
         integrations = {
           flash = true,
+          cmp = true,
+          gitsigns = true,
+          indent_blankline = { enabled = true },
+          harpoon = true,
+          lsp_trouble = false,
+          markdown = true,
+          neogit = true,
+          neotree = true,
+          noice = true,
+          rainbow_delimiters = true,
+          treesitter = true,
+          ufo = true,
         },
       },
     },
@@ -53,6 +65,24 @@ return {
       },
     },
   },
+  {
+    { import = "astrocommunity.editing-support.zen-mode-nvim" },
+    {
+      -- further customize the options set by the community
+      "folke/zen-mode.nvim",
+      dependencies = {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>z"] = { "<Cmd>ZenMode<CR>", desc = "Zen Mode" },
+            },
+          },
+        },
+      },
+    },
+  },
+  { import = "astrocommunity.color.twilight-nvim" },
 
   -- code completion and AI
   { import = "astrocommunity.completion.copilot-lua-cmp" },
@@ -65,6 +95,24 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
 
+  -- linters and formatters
+  -- { import = "astrocommunity.editing-support.conform-nvim" },
+  -- {
+  --   { import = "astrocommunity.editing-support.conform-nvim" },
+  --   {
+  --     -- further customize the options set by the community
+  --     "AstroNvim/astrocore",
+  --     opts = {
+  --       mappings = {
+  --         n = {
+  --           ["<Leader>lI"] = { function() vim.cmd.ConformInfo() end, desc = "Conform information" },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+  { import = "astrocommunity.lsp.nvim-lint" },
+
   -- debugging
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
@@ -72,7 +120,14 @@ return {
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
   -- git
-  { import = "astrocommunity.git.neogit" },
+  {
+    { import = "astrocommunity.git.neogit" },
+    {
+      -- further customize the options set by the community
+      "NeogitOrg/neogit",
+      cmd = "Neogit",
+    },
+  },
   { import = "astrocommunity.git.diffview-nvim" },
 
   -- testing
@@ -95,5 +150,4 @@ return {
   -- telescope
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
-
 }
