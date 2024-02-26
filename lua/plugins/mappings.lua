@@ -68,42 +68,6 @@ return {
 
           -- some plugin mappings
           ["<Leader>fs"] = { "<cmd>Telescope aerial<cr>", desc = "Search symbols" },
-          ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
-
-          -- conform formatter
-          ["<Leader>F"] = { function() vim.cmd.Format() end, desc = "Format buffer" },
-
-          -- Diffview mappings
-          ["<Leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
-          ["<Leader>gDc"] = { "<cmd>DiffviewClose<cr>", desc = "Close" },
-          ["<Leader>gDr"] = { "<cmd>DiffviewRefresh<cr>", desc = "Refresh" },
-          ["<Leader>gDf"] = { "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
-          ["<Leader>gDF"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Current file history" },
-          ["<Leader>gDm"] = { "<cmd>h Diffview-merge-tool<cr>", desc = "Help merge tool" },
-          ["<Leader>gD"] = { desc = " Diffview" },
-
-          -- put todo-comments under trouble group
-          ["<Leader>xt"] = { "<cmd>TodoTelescope<cr>", desc = "Open Todos in Telescope" },
-          ["<Leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "Open Todos in Trouble" },
-          ["<Leader>xQ"] = { "<cmd>TodoQuickFix<cr>", desc = "Quickfix List (Todo)" },
-          ["<Leader>xL"] = { "<cmd>TodoLocList<cr>", desc = "Location List (Todo)" },
-
-          -- fix missing descriptions in which-key
-          ["<Leader>gn"] = { desc = "󰊢 Neogit" },
-          ["<Leader>fd"] = { desc = " DAP" },
-
-          -- testing
-          -- ["<Leader>T"] = { name = "󰙨 Test" },
-          -- ["<Leader>TF"] = { "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", desc = "Debug File" },
-          -- ["<Leader>TL"] = { "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>", desc = "Debug Last" },
-          -- ["<Leader>Ta"] = { "<cmd>w|lua require('neotest').run.attach()<cr>", desc = "Attach" },
-          -- ["<Leader>Tf"] = { "<cmd>w|lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "File" },
-          -- ["<Leader>Tl"] = { "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = "Last" },
-          -- ["<Leader>Tn"] = { "<cmd>w|lua require('neotest').run.run()<cr>", desc = "Nearest" },
-          -- ["<Leader>TN"] = { "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug Nearest" },
-          -- ["<Leader>To"] = { "<cmd>w|lua require('neotest').output.open({ enter = true })<cr>", desc = "Output" },
-          -- ["<Leader>Ts"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
-          -- ["<Leader>TS"] = { "<cmd>w|lua require('neotest').summary.toggle()<cr>", desc = "Summary" },
         },
         t = {
           -- setting a mapping to false will disable it

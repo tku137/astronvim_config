@@ -90,8 +90,23 @@ return {
   { import = "astrocommunity.completion.cmp-cmdline" },
 
   -- editing support
-  { import = "astrocommunity.editing-support.todo-comments-nvim" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  {
+    { import = "astrocommunity.editing-support.todo-comments-nvim" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>xt"] = { "<cmd>TodoTelescope<cr>", desc = "Open Todos in Telescope" },
+            ["<Leader>xT"] = { "<cmd>TodoTrouble<cr>", desc = "Open Todos in Trouble" },
+            ["<Leader>xQ"] = { "<cmd>TodoQuickFix<cr>", desc = "Quickfix List (Todo)" },
+            ["<Leader>xL"] = { "<cmd>TodoLocList<cr>", desc = "Location List (Todo)" },
+          },
+        },
+      },
+    },
+  },
+
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
 
@@ -117,7 +132,19 @@ return {
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
-  { import = "astrocommunity.debugging.telescope-dap-nvim" },
+  {
+    { import = "astrocommunity.debugging.telescope-dap-nvim" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>fd"] = { desc = " DAP" },
+          },
+        },
+      },
+    },
+  },
 
   -- git
   {
@@ -128,13 +155,67 @@ return {
       cmd = "Neogit",
     },
   },
-  { import = "astrocommunity.git.diffview-nvim" },
+  {
+    { import = "astrocommunity.git.diffview-nvim" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>gDo"] = { "<cmd>DiffviewOpen<cr>", desc = "Open" },
+            ["<Leader>gDc"] = { "<cmd>DiffviewClose<cr>", desc = "Close" },
+            ["<Leader>gDr"] = { "<cmd>DiffviewRefresh<cr>", desc = "Refresh" },
+            ["<Leader>gDf"] = { "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
+            ["<Leader>gDF"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Current file history" },
+            ["<Leader>gDm"] = { "<cmd>h Diffview-merge-tool<cr>", desc = "Help merge tool" },
+            ["<Leader>gD"] = { desc = " Diffview" },
+          },
+        },
+      },
+    },
+  },
 
   -- testing
-  { import = "astrocommunity.test.neotest" },
+  {
+    { import = "astrocommunity.test.neotest" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>TF"] = {
+              "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
+              desc = "Debug File",
+            },
+            ["<Leader>TL"] = {
+              "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>",
+              desc = "Debug Last",
+            },
+            ["<Leader>Ta"] = { "<cmd>w|lua require('neotest').run.attach()<cr>", desc = "Attach" },
+            ["<Leader>Tl"] = { "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = "Last" },
+            ["<Leader>Tn"] = { "<cmd>w|lua require('neotest').run.run()<cr>", desc = "Nearest" },
+            ["<Leader>TN"] = { "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug Nearest" },
+            ["<Leader>Ts"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
+          },
+        },
+      },
+    },
+  },
 
   -- search and replace
-  { import = "astrocommunity.project.project-nvim" },
+  {
+    { import = "astrocommunity.project.project-nvim" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
+          },
+        },
+      },
+    },
+  },
   { import = "astrocommunity.project.nvim-spectre" },
 
   -- language packs
