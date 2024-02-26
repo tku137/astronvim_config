@@ -6,18 +6,18 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>lQ"] = { "<cmd>EditQuery<cr>", desc = "TS Live Query Editor", },
-              ["<Leader>lt"] = { "<cmd>Inspect<cr>", desc = "TS Node under Cursor", },
-              ["<Leader>lT"] = { "<cmd>InspectTree<cr>", desc = "Show AST", },
-            },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>lQ"] = { "<cmd>EditQuery<cr>", desc = "TS Live Query Editor" },
+            ["<Leader>lt"] = { "<cmd>Inspect<cr>", desc = "TS Node under Cursor" },
+            ["<Leader>lT"] = { "<cmd>InspectTree<cr>", desc = "Show AST" },
           },
         },
       },
+    },
   },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
@@ -49,7 +49,10 @@ return {
       "markdown",
       "markdown_inline",
       -- general
-      "json", "yaml", "toml", "query",
+      "json",
+      "yaml",
+      "toml",
+      "query",
       -- sql
       "sql",
     })
@@ -94,6 +97,12 @@ return {
           ["[M"] = "@function.outer",
           ["[]"] = "@class.outer",
         },
+      },
+    }
+    opts.rainbow = {
+      disable = {
+        -- "jsx",
+        -- "cpp",
       },
     }
   end,
