@@ -35,6 +35,7 @@ return {
       { "williamboman/mason.nvim", optional = true },
       {
         "AstroNvim/astrocore",
+        options = { opt = { formatexpr = "v:lua.require'conform'.formatexpr()" } },
         opts = {
           commands = {
             Format = {
@@ -86,7 +87,6 @@ return {
         },
       },
     },
-    init = function() vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" end,
     opts = {
       format_on_save = function(bufnr)
         if vim.g.autoformat == nil then vim.g.autoformat = true end
