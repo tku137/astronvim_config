@@ -26,16 +26,15 @@ if use_community then
         mappings = {
           n = {
             [prefix] = { desc = "󰯃 DevDocs" },
-            [prefix .. "f"] = { "<CMD>DevdocsFetch<CR>", desc = "Fetch Devdocs", mode = { "n" } },
-            [prefix .. "i"] = { "<CMD>DevdocsInstall<CR>", desc = "Install Devdocs", mode = { "n" } },
-            [prefix .. "u"] = { "<CMD>DevdocsUpdate<CR>", desc = "Update Devdocs", mode = { "n" } },
-            [prefix .. "U"] = { "<CMD>DevdocsUpdateAll<CR>", desc = "Update all Devdocs", mode = { "n" } },
+            [prefix .. "f"] = { "<CMD>DevdocsFetch<CR>", desc = "Fetch Devdocs" },
+            [prefix .. "i"] = { "<CMD>DevdocsInstall<CR>", desc = "Install Devdocs" },
+            [prefix .. "u"] = { "<CMD>DevdocsUpdate<CR>", desc = "Update Devdocs" },
+            [prefix .. "U"] = { "<CMD>DevdocsUpdateAll<CR>", desc = "Update all Devdocs" },
             [prefix .. "d"] = {
               "<CMD>DevdocsOpenCurrentFloat<CR>",
               desc = "Find Devdocs for current file",
-              mode = { "n" },
             },
-            [prefix .. "D"] = { "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
+            [prefix .. "D"] = { "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs" },
           },
         },
       },
@@ -68,16 +67,15 @@ return {
           mappings = {
             n = {
               [prefix] = { desc = "󰯃 DevDocs" },
-              [prefix .. "f"] = { "<CMD>DevdocsFetch<CR>", desc = "Fetch Devdocs", mode = { "n" } },
-              [prefix .. "i"] = { "<CMD>DevdocsInstall<CR>", desc = "Install Devdocs", mode = { "n" } },
-              [prefix .. "u"] = { "<CMD>DevdocsUpdate<CR>", desc = "Update Devdocs", mode = { "n" } },
-              [prefix .. "U"] = { "<CMD>DevdocsUpdateAll<CR>", desc = "Update all Devdocs", mode = { "n" } },
+              [prefix .. "f"] = { "<CMD>DevdocsFetch<CR>", desc = "Fetch Devdocs" },
+              [prefix .. "i"] = { "<CMD>DevdocsInstall<CR>", desc = "Install Devdocs" },
+              [prefix .. "u"] = { "<CMD>DevdocsUpdate<CR>", desc = "Update Devdocs" },
+              [prefix .. "U"] = { "<CMD>DevdocsUpdateAll<CR>", desc = "Update all Devdocs" },
               [prefix .. "d"] = {
                 "<CMD>DevdocsOpenCurrentFloat<CR>",
                 desc = "Find Devdocs for current file",
-                mode = { "n" },
               },
-              [prefix .. "D"] = { "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
+              [prefix .. "D"] = { "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs" },
             },
           },
         },
