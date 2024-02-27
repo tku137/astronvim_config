@@ -1,50 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
----@type LazySpec
-return {
-  {
-    "b0o/SchemaStore.nvim",
-    dependencies = {
-      {
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
 
-        "AstroNvim/astrolsp",
-        ---@type AstroLSPOpts
-        opts = {
-          ---@diagnostic disable: missing-fields
-          config = {
-            jsonls = {
-              on_new_config = function(config)
-                if not config.settings.json.schemas then config.settings.json.schemas = {} end
-                vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
-              end,
-              settings = { json = { validate = { enable = true } } },
-            },
-          },
-        },
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "json", "jsonc" })
-      end
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jsonls" })
-    end,
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "json-lsp" })
-    end,
-  },
-}
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.pack.json" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
+---@type LazySpec
+return {}

@@ -1,28 +1,26 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
----@type LazySpec
-return {
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      rooter = false,
-      mappings = {
-        n = {
-          ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.project.project-nvim" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>fp"] = { "<cmd>Telescope projects<cr>", desc = "Find projects" },
+          },
         },
       },
     },
-  },
-  {
-    "jay-babu/project.nvim",
-    main = "project_nvim",
-    event = "VeryLazy",
-    opts = { ignore_lsp = { "lua_ls" } },
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    optional = true,
-    dependencies = { "jay-babu/project.nvim" },
-    opts = function() require("telescope").load_extension "projects" end,
-  },
-}
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
+---@type LazySpec
+return {}

@@ -1,80 +1,38 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
----@type LazySpec
-local prefix = "<Leader>T"
-return {
-  {
-    "nvim-neotest/neotest",
-    lazy = true,
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              [prefix] = { desc = "󰗇 Tests" },
-              [prefix .. "t"] = { function() require("neotest").run.run() end, desc = "Run test" },
-              [prefix .. "d"] = { function() require("neotest").run.run { strategy = "dap" } end, desc = "Debug test" },
-              [prefix .. "f"] = {
-                function() require("neotest").run.run(vim.fn.expand "%") end,
-                desc = "Run all tests in file",
-              },
-              [prefix .. "p"] = {
-                function() require("neotest").run.run(vim.fn.getcwd()) end,
-                desc = "Run all tests in project",
-              },
-              [prefix .. "<CR>"] = { function() require("neotest").summary.toggle() end, desc = "Test Summary" },
-              [prefix .. "o"] = { function() require("neotest").output.open() end, desc = "Output hover" },
-              [prefix .. "O"] = { function() require("neotest").output_panel.toggle() end, desc = "Output window" },
-              ["]T"] = { function() require("neotest").jump.next() end, desc = "Next test" },
-              ["[T"] = { function() require("neotest").jump.prev() end, desc = "previous test" },
-              [prefix .. "F"] = {
-                "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
-                desc = "Debug File",
-              },
-              [prefix .. "L"] = {
-                "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>",
-                desc = "Debug Last",
-              },
-              [prefix .. "a"] = { "<cmd>w|lua require('neotest').run.attach()<cr>", desc = "Attach" },
-              [prefix .. "l"] = { "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = "Last" },
-              [prefix .. "n"] = { "<cmd>w|lua require('neotest').run.run()<cr>", desc = "Nearest" },
-              [prefix .. "N"] = {
-                "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>",
-                desc = "Debug Nearest",
-              },
-              [prefix .. "s"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.test.neotest" },
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>TF"] = {
+              "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
+              desc = "Debug File",
             },
+            ["<Leader>TL"] = {
+              "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>",
+              desc = "Debug Last",
+            },
+            ["<Leader>Ta"] = { "<cmd>w|lua require('neotest').run.attach()<cr>", desc = "Attach" },
+            ["<Leader>Tl"] = { "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = "Last" },
+            ["<Leader>Tn"] = { "<cmd>w|lua require('neotest').run.run()<cr>", desc = "Nearest" },
+            ["<Leader>TN"] = { "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug Nearest" },
+            ["<Leader>Ts"] = { "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
           },
         },
       },
-      {
-        "folke/neodev.nvim",
-        opts = function(_, opts)
-          opts.library = opts.library or {}
-          if opts.library.plugins ~= true then
-            opts.library.plugins = require("astrocore").list_insert_unique(opts.library.plugins, { "neotest" })
-          end
-          opts.library.types = true
-        end,
-      },
     },
-    config = function(_, opts)
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-            return message
-          end,
-        },
-      }, vim.api.nvim_create_namespace "neotest")
-      require("neotest").setup(opts)
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    optional = true,
-    ---@type CatppuccinOptions
-    opts = { integrations = { neotest = true } },
-  },
-}
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
+---@type LazySpec
+return {}

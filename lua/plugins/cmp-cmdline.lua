@@ -1,38 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.completion.cmp-cmdline" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
-return {
-  "hrsh7th/cmp-cmdline",
-  keys = { ":", "/", "?" }, -- lazy load cmp on more keys along with insert mode
-  dependencies = { "hrsh7th/nvim-cmp" },
-  opts = function()
-    local cmp = require "cmp"
-    return {
-      {
-        type = "/",
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      },
-      {
-        type = ":",
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          },
-        }),
-      },
-    }
-  end,
-  config = function(_, opts)
-    local cmp = require "cmp"
-    vim.tbl_map(function(val) cmp.setup.cmdline(val.type, val) end, opts)
-  end,
-}
+return {}

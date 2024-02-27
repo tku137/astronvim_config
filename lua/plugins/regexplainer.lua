@@ -1,20 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.editing-support.nvim-regexplainer" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
-return {
-  {
-    "bennypowers/nvim-regexplainer",
-    opts = {},
-    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "python" },
-  },
-  -- Regex support
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add regex to treesitters
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "regex" })
-      end
-    end,
-  },
-}
+return {}
