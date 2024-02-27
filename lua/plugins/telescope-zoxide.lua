@@ -1,20 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
-return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "jvgrootveld/telescope-zoxide",
-    {
-      "AstroNvim/astrocore",
-      opts = {
-        mappings = {
-          n = {
-            ["<Leader>fz"] = { "<CMD>Telescope zoxide list<CR>", desc = "Find directories" },
-          },
-        },
-      },
-    },
-  },
-  opts = function() require("telescope").load_extension "zoxide" end,
-}
+return {}

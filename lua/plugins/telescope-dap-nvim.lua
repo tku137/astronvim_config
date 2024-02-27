@@ -1,42 +1,26 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
----@type LazySpec
-local prefix = "<Leader>fd"
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
 
-return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "nvim-telescope/telescope-dap.nvim",
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.debugging.telescope-dap-nvim" },
     {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
           n = {
-            [prefix] = { desc = " DAP" },
-            [prefix .. "c"] = {
-              "<CMD>lua require('telescope').extensions.dap.commands()<CR>",
-              desc = "Telescope DAP commands",
-            },
-            [prefix .. "f"] = {
-              "<CMD>lua require('telescope').extensions.dap.frames()<CR>",
-              desc = "Telescope DAP frames",
-            },
-            [prefix .. "g"] = {
-              "<CMD>lua require('telescope').extensions.dap.configurations()<CR>",
-              desc = "Telescope DAP configurations",
-            },
-            [prefix .. "l"] = {
-              "<CMD>lua require('telescope').extensions.dap.list_breakpoints()<CR>",
-              desc = "Telescope DAP list breakpoints",
-            },
-            [prefix .. "v"] = {
-              "<CMD>lua require('telescope').extensions.dap.variables()<CR>",
-              desc = "Telescope DAP variables",
-            },
+            ["<Leader>fd"] = { desc = " DAP" },
           },
         },
       },
     },
-  },
-  opts = function() require("telescope").load_extension "dap" end,
-}
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
+---@type LazySpec
+return {}

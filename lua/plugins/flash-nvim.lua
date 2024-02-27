@@ -1,59 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.motion.flash-nvim" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
-return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  dependencies = {
-    {
-      "AstroNvim/astrocore",
-      opts = {
-        mappings = {
-          x = {
-            ["s"] = {
-              function() require("flash").jump() end,
-              desc = "Flash",
-            },
-            ["R"] = {
-              function() require("flash").treesitter_search() end,
-              desc = "Treesitter Search",
-            },
-            ["S"] = {
-              function() require("flash").treesitter() end,
-              desc = "Flash Treesitter",
-            },
-          },
-          o = {
-            ["r"] = {
-              function() require("flash").remote() end,
-              desc = "Remote Flash",
-            },
-            ["R"] = {
-              function() require("flash").treesitter_search() end,
-              desc = "Treesitter Search",
-            },
-            ["s"] = {
-              function() require("flash").jump() end,
-              desc = "Flash",
-            },
-            ["S"] = {
-              function() require("flash").treesitter() end,
-              desc = "Flash Treesitter",
-            },
-          },
-          n = {
-            ["s"] = {
-              function() require("flash").jump() end,
-              desc = "Flash",
-            },
-            ["S"] = {
-              function() require("flash").treesitter() end,
-              desc = "Flash Treesitter",
-            },
-          },
-        },
-      },
-    },
-  },
-  opts = {},
-}
+return {}

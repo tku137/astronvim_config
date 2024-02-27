@@ -1,50 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
----@type LazySpec
-return {
-  {
-    "nvim-pack/nvim-spectre",
-    cmd = "Spectre",
-    dependencies = {
-      { "AstroNvim/astroui", opts = { icons = { Spectre = "󰛔" } } },
-      {
-        "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = opts.mappings
-          local prefix = "<Leader>s"
-          maps.n[prefix] = { desc = require("astroui").get_icon("Spectre", 1, true) .. "Search / Replace" }
-          maps.n[prefix .. "s"] = { function() require("spectre").open() end, desc = "Spectre" }
-          maps.n[prefix .. "f"] =
-            { function() require("spectre").open_file_search() end, desc = "Spectre (current file)" }
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
 
-          maps.x[prefix] = maps.n[prefix]
-          maps.x[prefix .. "w"] = {
-            function() require("spectre").open_visual { select_word = true } end,
-            desc = "Spectre (current word)",
-          }
-        end,
-      },
-    },
-    opts = function()
-      return {
-        mapping = {
-          send_to_qf = { map = "q" },
-          replace_cmd = { map = "c" },
-          show_option_menu = { map = "o" },
-          run_current_replace = { map = "C" },
-          run_replace = { map = "R" },
-          change_view_mode = { map = "v" },
-          resume_last_search = { map = "l" },
-        },
-      }
-    end,
-  },
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      if not opts.bottom then opts.bottom = {} end
-      table.insert(opts.bottom, { ft = "spectre_panel", title = "Search/Replace", size = { height = 0.4 } })
-    end,
-  },
-}
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.project.nvim-spectre" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
+---@type LazySpec
+return {}

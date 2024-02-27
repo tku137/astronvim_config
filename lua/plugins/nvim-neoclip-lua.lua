@@ -1,24 +1,16 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.register.nvim-neoclip-lua" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
-return {
-  "AckslD/nvim-neoclip.lua",
-  event = { "User AstroFile", "InsertEnter" },
-  dependencies = {
-    { "nvim-telescope/telescope.nvim" },
-    {
-      "AstroNvim/astrocore",
-      opts = {
-        mappings = {
-          n = {
-            ["<Leader>fy"] = { "<CMD>Telescope neoclip<CR>", desc = "Find yanks (neoclip)" },
-          },
-        },
-      },
-    },
-  },
-  config = function(_, opts)
-    require("neoclip").setup(opts)
-    require("telescope").load_extension "neoclip"
-  end,
-}
+return {}
