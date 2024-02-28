@@ -9,9 +9,19 @@ if use_community then
     { import = "astrocommunity.file-explorer.oil-nvim" },
     {
       "stevearc/oil.nvim",
+      dependencies = {
+        "SirZenith/oil-vcs-status",
+        "nvim-tree/nvim-web-devicons",
+      },
       config = function()
         require("oil").setup {
           -- your oil.nvim setup
+          columns = {
+            "icon",
+            -- "permissions",
+            "size",
+            -- "mtime",
+          },
           win_options = {
             signcolumn = "yes:2",
           },
