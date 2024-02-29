@@ -24,9 +24,9 @@ return {
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
-        scrolloff = 10, -- sets vim.opt.scrolloff
+        scrolloff = 3, -- sets vim.opt.scrolloff
         virtualedit = "block", -- sets vim.opt.virtualedit
         clipboard = "", -- Remove connection to the system clipboard
       },
