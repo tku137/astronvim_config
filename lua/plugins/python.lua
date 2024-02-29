@@ -105,7 +105,6 @@ return {
   },
   {
     "nvim-neotest/neotest-python",
-    optional = true,
     dependencies = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
