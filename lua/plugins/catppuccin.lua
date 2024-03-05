@@ -20,7 +20,7 @@ if use_community then
         dim_inactive = { enabled = true, percentage = 0.25 },
         integrations = {
           flash = true,
-          cmp = true,
+          -- cmp = true,
           gitsigns = true,
           indent_blankline = { enabled = true },
           harpoon = true,
