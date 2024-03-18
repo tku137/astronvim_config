@@ -107,6 +107,7 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest",
+      "nvim-neotest/nvim-nio",
     },
     config = function()
       ---@diagnostic disable-next-line: missing-fields
