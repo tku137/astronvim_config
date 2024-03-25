@@ -46,7 +46,6 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "python",
@@ -72,7 +71,6 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
-    optional = true,
     dependencies = {
       "mfussenegger/nvim-dap",
       {
@@ -109,6 +107,7 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest",
+      "nvim-neotest/nvim-nio",
     },
     config = function()
       ---@diagnostic disable-next-line: missing-fields
