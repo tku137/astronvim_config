@@ -1,3 +1,17 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- choose to use the community plugin or a custom plugin spec down below
+local use_community = true -- INFO: Set to false to use a custom plugin spec
+
+if use_community then
+  ---@type LazySpec
+  return {
+    { import = "astrocommunity.utility.mason-tool-installer-nvim" },
+  }
+end
+
+-- WARN: this is a custom plugin spec loaded when `use_community` is set to false
+
 ---@type LazySpec
 return {
   {
@@ -7,28 +21,30 @@ return {
     init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
     opts = {
       ensure_installed = {
+        -- WARNING: Most of the language servers are handled by community packs
+
         -- Language Servers
-        "clangd",
-        "lua_ls",
-        "marksman",
-        "ruff_lsp",
-        "texlab",
-        "yamlls",
+        -- "clangd",
+        -- "lua_ls",
+        -- "marksman",
+        -- "ruff_lsp",
+        -- "texlab",
+        -- "yamlls",
 
         -- Linters
-        "luacheck",
-        "shellcheck",
+        -- "luacheck",
+        -- "shellcheck",
 
         -- Formatters
-        "prettier",
-        "black",
-        "shfmt",
-        "stylua",
+        -- "prettier",
+        -- "black",
+        -- "shfmt",
+        -- "stylua",
 
         -- Debuggers
-        "bash-debug-adapter",
-        "cpptools",
-        "debugpy",
+        -- "bash-debug-adapter",
+        -- "cpptools",
+        -- "debugpy",
       },
     },
     config = function(_, opts)
