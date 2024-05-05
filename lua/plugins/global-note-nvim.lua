@@ -52,7 +52,14 @@ local get_project_name_git = function()
 end
 
 local get_project_name_git_branch = function()
-  -- Create the command as a single string
+  -- First, get the repository name using the existing function
+  local repo_name = get_project_name_git()
+  if repo_name == nil then
+    vim.notify("Unable to fetch repository name", vim.log.levels.WARN)
+    return nil
+  end
+
+  -- Now fetch the current branch name
   local command = "git symbolic-ref --short HEAD"
   local result = vim.fn.system(command)
 
@@ -63,7 +70,15 @@ local get_project_name_git_branch = function()
   end
 
   -- Remove trailing newline
-  return result:gsub("\n", "")
+  local branch_name = result:gsub("\n", "")
+
+  -- Combine repo name and branch name for a unique note identifier
+  if branch_name == "" then
+    vim.notify("Branch name is empty, possibly in a detached HEAD state.", vim.log.levels.WARN)
+    return nil
+  end
+
+  return repo_name .. "_" .. branch_name
 end
 
 return {
