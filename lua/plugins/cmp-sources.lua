@@ -7,6 +7,9 @@ if use_community then
   ---@type LazySpec
   return {
     { import = "astrocommunity.completion.cmp-cmdline" },
+    { import = "astrocommunity.completion.cmp-git" },
+    { import = "astrocommunity.completion.cmp-latex-symbols" },
+    { import = "astrocommunity.completion.cmp-nvim-lua" },
   }
 end
 
