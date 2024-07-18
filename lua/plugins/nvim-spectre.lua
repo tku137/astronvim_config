@@ -6,7 +6,7 @@ local use_community = true -- INFO: Set to false to use a custom plugin spec
 if use_community then
   ---@type LazySpec
   return {
-    { import = "astrocommunity.project.nvim-spectre" },
+    { import = "astrocommunity.search.nvim-spectre" },
   }
 end
 
