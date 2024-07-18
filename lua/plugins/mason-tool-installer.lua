@@ -27,7 +27,7 @@ return {
         -- "clangd",
         -- "lua_ls",
         -- "marksman",
-        -- "ruff_lsp",
+        -- "ruff",
         -- "texlab",
         -- "yamlls",
 

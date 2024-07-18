@@ -30,7 +30,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "ruff-lsp",
+        "ruff",
         "pyright",
         "debugpy",
       })
@@ -42,7 +42,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "pyright",
-        "ruff_lsp",
+        "ruff",
       })
     end,
   },
@@ -51,7 +51,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "black",
+        -- "black",
       })
     end,
   },
