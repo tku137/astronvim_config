@@ -89,10 +89,10 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        local prefix = "<Leader>m"
+        local prefix = "<Leader>N"
 
         maps.n[prefix] = { desc = require("astroui").get_icon("Notes", 1, true) .. "Notes" }
-        maps.n[prefix .. "m"] = {
+        maps.n[prefix .. "n"] = {
           function() require("global-note").toggle_note() end,
           desc = "Toggle global note",
         }
