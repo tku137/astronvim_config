@@ -24,7 +24,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        local prefix = "<Leader>m"
+        local prefix = "<Leader>M"
         maps.n[prefix] = { desc = require("astroui").get_icon("MicroPython", 1, true) .. "MicroPython" }
         maps.n[prefix .. "r"] = { "<Cmd>MPRun<CR>", desc = "runs current buffer on the micro-controller" }
         maps.n[prefix .. "R"] = { "<Cmd>MPRepl<CR>", desc = "opens the REPL" }
