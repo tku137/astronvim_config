@@ -7,6 +7,28 @@ if use_community then
   return {
     -- Import the Molten plugin from the AstroNvim community
     { import = "astrocommunity.code-runner.molten-nvim" },
+    {
+      -- further customize the options set by the community
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            -- next/prec cell: MoltenNext, MoltenPrev
+            ["<Leader>m"] = { desc = "󱓞 Molten" },
+            ["<Leader>mh"] = { "<Cmd>MoltenHideOutput<CR>", desc = "Hide Output" },
+            ["<Leader>mm"] = { desc = "Commands" },
+            ["<Leader>mmI"] = { "<Cmd>MoltenInterrupt<CR>", desc = "Interrupt Kernel" },
+            ["<Leader>mmR"] = { "<Cmd>MoltenRestart<CR>", desc = "Restart Kernel" },
+            ["<Leader>mr"] = { desc = "Evaluate" },
+            ["]c"] = { "<Cmd>MoltenNext<CR>", desc = "Next Molten Cel" },
+            ["[c"] = { "<Cmd>MoltenPrev<CR>", desc = "Previous Molten Cell" },
+          },
+          v = {
+            ["<Leader>m"] = { desc = "󱓞 Molten" },
+          },
+        },
+      },
+    },
 
     -- Configure heirline.nvim to add the Molten status component
     {
