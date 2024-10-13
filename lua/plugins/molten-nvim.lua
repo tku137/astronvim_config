@@ -3,6 +3,58 @@
 local use_community = true -- Set to true to use the community plugin spec
 
 if use_community then
+  local function ensure_kernel_for_venv()
+    local venv_path = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX"
+    if not venv_path then
+      print "No virtual environment found."
+      return
+    end
+
+    -- Check if the kernel spec already exists
+    local handle = io.popen "jupyter kernelspec list --json"
+    local existing_kernels = {}
+    if handle then
+      local result = handle:read "*a"
+      handle:close()
+      local json = vim.fn.json_decode(result)
+      -- Iterate over available kernel specs to find the one for this virtual environment
+      for kernel_name, data in pairs(json.kernelspecs) do
+        existing_kernels[kernel_name] = true -- Store existing kernel names for validation
+        local kernel_path = data.spec.argv[1]
+        if kernel_path:find(venv_path) then
+          print "Kernel spec for this virtual environment already exists."
+          return kernel_name
+        end
+      end
+    end
+
+    -- Prompt the user for a custom kernel name, ensuring it is unique
+    local new_kernel_name
+    repeat
+      new_kernel_name = vim.fn.input "Enter a unique name for the new kernel spec: "
+      if new_kernel_name == "" then
+        print "Please provide a valid kernel name."
+        return
+      elseif existing_kernels[new_kernel_name] then
+        print("Kernel name '" .. new_kernel_name .. "' already exists. Please choose another name.")
+        new_kernel_name = nil
+      end
+    until new_kernel_name
+
+    -- Create the kernel spec with the unique name
+    print "Creating a new kernel spec for this virtual environment..."
+    local cmd = string.format(
+      '%s -m ipykernel install --user --name="%s" --display-name="%s"',
+      vim.fn.shellescape(venv_path .. "/bin/python"),
+      new_kernel_name,
+      new_kernel_name
+    )
+
+    os.execute(cmd)
+    print(string.format("Kernel spec '%s' created successfully.", new_kernel_name))
+    return new_kernel_name
+  end
+
   ---@type LazySpec
   return {
     -- Import the Molten plugin from the AstroNvim community
@@ -22,6 +74,15 @@ if use_community then
             ["<Leader>mr"] = { desc = "Evaluate" },
             ["]c"] = { "<Cmd>MoltenNext<CR>", desc = "Next Molten Cel" },
             ["[c"] = { "<Cmd>MoltenPrev<CR>", desc = "Previous Molten Cell" },
+            -- Dynamic Kernel Initialization based on Virtual Environment
+            ["<Leader>mi"] = {
+              function()
+                local kernel_name = ensure_kernel_for_venv()
+                vim.cmd(("MoltenInit %s"):format(kernel_name))
+              end,
+              desc = "Initialize Molten for Python",
+              silent = true,
+            },
           },
           v = {
             ["<Leader>m"] = { desc = "󱓞 Molten" },
