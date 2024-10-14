@@ -10,6 +10,9 @@ if use_community then
       return
     end
 
+    -- Canonicalize the venv_path to ensure consistency
+    venv_path = vim.fn.fnamemodify(venv_path, ":p")
+
     -- Check if the kernel spec already exists
     local handle = io.popen "jupyter kernelspec list --json"
     local existing_kernels = {}
@@ -20,8 +23,8 @@ if use_community then
       -- Iterate over available kernel specs to find the one for this virtual environment
       for kernel_name, data in pairs(json.kernelspecs) do
         existing_kernels[kernel_name] = true -- Store existing kernel names for validation
-        local kernel_path = data.spec.argv[1]
-        if kernel_path:find(venv_path) then
+        local kernel_path = vim.fn.fnamemodify(data.spec.argv[1], ":p") -- Canonicalize the kernel path
+        if kernel_path:find(venv_path, 1, true) then
           print "Kernel spec for this virtual environment already exists."
           return kernel_name
         end
