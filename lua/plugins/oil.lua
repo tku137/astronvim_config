@@ -25,6 +25,7 @@ if use_community then
           win_options = {
             signcolumn = "yes:2",
           },
+          skip_confirm_for_simple_edits = true,
         }
         local status_const = require "oil-vcs-status.constant.status"
         local StatusType = status_const.StatusType
