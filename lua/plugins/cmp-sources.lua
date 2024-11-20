@@ -10,6 +10,7 @@ if use_community then
     { import = "astrocommunity.completion.cmp-git" },
     { import = "astrocommunity.completion.cmp-latex-symbols" },
     { import = "astrocommunity.completion.cmp-nvim-lua" },
+    { import = "astrocommunity.completion.cmp-tmux" },
   }
 end
 
