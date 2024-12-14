@@ -11,7 +11,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         if not opts.mappings then opts.mappings = {} end
-        local prefix = "<leader>A"
+        local prefix = "<leader>a"
 
         opts.mappings.n[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
         opts.mappings.v[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
