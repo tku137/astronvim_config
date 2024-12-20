@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- choose to use the community plugin or a custom plugin spec down below
 local use_community = true -- INFO: Set to false to use a custom plugin spec
